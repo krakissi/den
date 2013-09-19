@@ -7,29 +7,44 @@
 	<link rel=stylesheet type=text/css href=s/base.css>
 	<link rel=stylesheet type=text/css href=s/front.css>
 </head><body>
-	<!-- A banner at the top of the page -->
-	<div id=div_header>
-		<h1>Welcome to Krakden</h1>
-	</div>
+	<div id=div_pagewrapper>
+		<!-- A banner at the top of the page -->
+		<div id=div_header>
+			<h1>Krakden: A Social Network</h1>
+			<h2><????den:taglines></h2>
+		</div>
 
-	<!-- Reasons to connect to the network -->
-	<div id=div_joinuspls class=inlineblock>
-		<p>Not convinced you need an account?</p>
-		<ul>
-			<li>A reason</li>
-			<li>Another reason!!</li>
-			<li>So many reasonsssssss!!</li>
-		</ul>
-	</div>
+		<div id=div_contentwrapper>
 
-	<!-- A login form with links to the registration page -->
-	<div id=div_loginarea class=inlineblock>
-		<form>
-			<input>
-			<input type=submit>
-		</form>
-	</div>
+			<!-- Reasons to connect to the network -->
+			<div id=div_joinuspls class=inlineblock>
+				<p>Not convinced you need an account?</p>
+				<ul>
+					<li>A reason</li>
+					<li>Another reason!!</li>
+					<li>So many reasonsssssss!!</li>
+				</ul>
+			</div>
 
-	<!-- Copyright information to anchor the bottom of the page. -->
-	<div id=div_bottombox><????den:copyright></div>
+			<!-- A login form with links to the registration page -->
+			<div id=div_loginarea class=inlineblock>
+				<p>Already registered? Login here!</p>
+				<form action=/login.html>
+					<label for=field_username>Username</label><br>
+					<input name=u id=field_username><br>
+
+					<label for=field_password>Password</label><br>
+					<input name=p id=field_password><br>
+
+					<input type=submit value=Login>
+				</form>
+			</div>
+
+		</div>
+
+		<!-- Copyright information to anchor the bottom of the page. -->
+		<div id=div_bottombox>
+			<????den:copyright> - Please don't steal this. - No really, it's important! - <a href=.>Privacy Information</a>
+		</div>
+	</div>
 </body></html>

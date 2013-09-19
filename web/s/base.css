@@ -1,4 +1,9 @@
 /* Krakden Base Classes for CSS */
+body {
+	margin: 0;
+	padding: 0;
+}
+
 .inlineblock {
 	display: inline-block;
 	vertical-align: top;
