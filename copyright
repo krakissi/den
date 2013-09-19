@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo -e "Copyright ($(date '+%Y')) Mike Perron"

@@ -1,0 +1,6 @@
+/* Krakden Base Classes for CSS */
+.inlineblock {
+	display: inline-block;
+	vertical-align: top;
+	padding: 1em;
+}
