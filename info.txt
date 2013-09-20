@@ -1,5 +1,6 @@
 # Krakden: A social networking platform.
 # Mike Perron (2013)
 
-copyright=copyright
-taglines=taglines
+copyright=sh/copyright
+taglines=sh/taglines
+title=sh/pagetitle

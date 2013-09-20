@@ -1,0 +1,9 @@
+#!/bin/bash
+# Sets the <title> tag for HTML pages.
+
+title="Social Network"
+if [ -n "$1" ]; then
+	title="$title - $1"
+fi
+
+printf "%s" "$title"

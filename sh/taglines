@@ -9,6 +9,13 @@ tags=(
 	"It's definitely \"in beta.\""
 	"When it's Done.&trade;"
 	"Soon.&trade;"
+	"The Future is Now!"
+	"The Future is Soon!"
+	"The Future is Yesterday!"
+	"The Future...is!"
+	"Definitely not Krakchat!"
+	"Runs on Kraknet!"
+	"No LAMPs in this Krakhouse!"
 )
 
 a=$RANDOM
