@@ -14,7 +14,7 @@ tags=(
 	"The Future is Yesterday!"
 	"The Future...is!"
 	"Definitely not Krakchat!"
-	"Runs on Kraknet!"
+	"Runs on <a href=//github.com/krakissi/kraknet>Kraknet</a>!"
 	"No LAMPs in this Krakhouse!"
 )
 

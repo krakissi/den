@@ -2,10 +2,46 @@
 body {
 	margin: 0;
 	padding: 0;
+	font-size: 14pt;
+
+	background-image: url('grafx/2x1graybg.png');
+	background-repeat: repeat;
 }
 
 .inlineblock {
 	display: inline-block;
 	vertical-align: top;
 	padding: 1em;
+}
+
+a {
+	text-decoration: none;
+	color: blue;
+}
+a:hover {
+	color: red;
+}
+
+.checkerback,#div_header,#div_bottombox {
+	background-image: url('grafx/4x4bbcb.png');
+	background-repeat: repeat;
+}
+
+
+#div_pagewrapper {
+	width: 950px;
+	margin: 0 auto;
+	padding: 0;
+	border: 1px solid gray;
+	border-top: none;
+	box-shadow: 4px 4px 3px #e0e0e0;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	overflow: hidden;
+}
+
+
+#div_contentwrapper {
+	min-height: 350px;
+	background-color: #ffffff;
 }

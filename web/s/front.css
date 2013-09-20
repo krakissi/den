@@ -1,17 +1,4 @@
 /* Krakden Front Page */
-#div_pagewrapper {
-	width: 800px;
-	margin: 0 auto;
-	padding: 0;
-}
-
-
-#div_contentwrapper {
-	padding: 1em;
-	background-color: #f0f0f0;
-}
-
-
 #div_header {
 	background-color: #9090e0;
 	padding: 1em;
@@ -26,6 +13,7 @@
 	padding: 0;
 	margin: 0;
 	font-size: 1em;
+	font-style: oblique;
 }
 
 
@@ -40,7 +28,7 @@
 	padding: 0px;
 	vertical-align: baseline;
 	text-transform: uppercase;
-	font-family: monospace;
+	font-family: sans-serif;
 	font-size: 10px;
 }
 
