@@ -3,6 +3,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-size: 14pt;
+	font-family: sans-serif;
 
 	background-image: url('grafx/2x1graybg.png');
 	background-repeat: repeat;
