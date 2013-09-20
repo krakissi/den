@@ -1,3 +1,16 @@
 #!/bin/bash
+# Print a cute tagline for the page header.
 
-echo -e "Join your friends, sheep."
+tags=(
+	"Join your friends, sheep."
+	"Drugs are bad, mmm'kay?"
+	"Definitely not Facebook!"
+	"Like MySpace, but cooler."
+	"It's definitely \"in beta.\""
+	"When it's Done.&trade;"
+	"Soon.&trade;"
+)
+
+a=$RANDOM
+let "a %= ${#tags[@]}"
+printf "%s" "${tags[$a]}"
