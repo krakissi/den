@@ -7,6 +7,11 @@ body {
 
 	background-image: url('grafx/2x1graybg.png');
 	background-repeat: repeat;
+/*
+	background-attachment: fixed;
+	This would be cool, except that it's a major performance hit.
+	I want this to be as netbook-friendly as possible.
+*/
 }
 
 .inlineblock {
