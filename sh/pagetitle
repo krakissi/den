@@ -3,7 +3,16 @@
 
 title="Social Network"
 if [ -n "$1" ]; then
-	title="$title - $1"
+	if [ "$1" = "h1" ]; then
+		if [ -n "$2" ]; then
+			title="The Den: $2"
+		else
+			title="The Den: A Social Network"
+		fi
+		printf "<a href=/den/>%s</a>" "$title"
+	else
+		title="$title - $1"
+		printf "%s" "$title"
+	fi
 fi
 
-printf "%s" "$title"

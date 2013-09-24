@@ -1,0 +1,25 @@
+#!/bin/bash
+# Dump out the user image file for the corresponding user.
+# Eventually, there could be a permissions check here.
+#
+# Mike Perron (2013)
+
+fail_message(){
+	cat <<-EOF
+		Content-Type: text/plain; charset=utf-8
+		Status: 204 No Content
+
+	EOF
+	exit 0
+}
+
+if [ -z "$QUERY_STRING" ]; then
+	fail_message
+fi
+
+who=${QUERY_STRING%%/*}
+cat << EOF
+Content-Type: image/jpeg
+
+EOF
+cat "$mod_root/den/db/i/$who"
