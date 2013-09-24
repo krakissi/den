@@ -32,6 +32,7 @@ a:hover {
 #div_pagewrapper {
 	width: 950px;
 	margin: 0 auto;
+	margin-bottom: 2em;
 	padding: 0;
 	border: 1px solid gray;
 	border-top: none;

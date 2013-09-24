@@ -1,10 +1,44 @@
 #div_userpro {
 	padding: 1em;
 }
-#div_userpro img#profileimg {
+#div_userpro #profiletabular {
 	float: right;
 	padding: 1em;
 }
+#div_userpro #profiletabular #profileimg {
+	width: 300px;
+}
+#div_userpro #profiletabular table {
+	border-left: solid 1px black;
+	border-top: solid 1px black;
+	border-spacing: 0px;
+	width: 300px;
+}
+#div_userpro #profiletabular table tr:nth-child(even) {
+	background-color:#f0f0f0;
+}
+#div_userpro #profiletabular table td,th {
+	border-bottom: solid 1px black;
+	border-right: solid 1px black;
+	padding: 0 0.7em;
+}
+#div_userpro #profiletabular table th {
+	text-align: right;
+	vertical-align: text-top;
+}
+#div_userpro #profiletabular ul#ul_commopt {
+	list-style-type: none;
+	padding: 0.5em 0;
+	margin: 0;
+}
+#div_userpro #profiletabular ul#ul_commopt li:before {
+	content: '→';
+	padding-right: 0.2em;
+}
+#div_userpro #profiletabular ul#ul_commopt li {
+	padding: 0.1em 0;
+}
+
 #div_userpro p {
 	text-indent: 2em;
 	text-align: justify;
