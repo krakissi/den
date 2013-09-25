@@ -75,6 +75,13 @@ a:hover {
 	font-size: 1em;
 	font-style: oblique;
 }
+#div_header h2 a {
+	color: black;
+	text-decoration: underline;
+}
+#div_header h2 a:hover {
+	color: red;
+}
 
 
 #div_bottombox {
