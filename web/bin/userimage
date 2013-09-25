@@ -13,13 +13,27 @@ fail_message(){
 	exit 0
 }
 
-if [ -z "$QUERY_STRING" ]; then
+# Can't serve an image with no request.
+if [ -z "$QUERY_STRING" ]; then fail_message; fi
+
+# Primitive cleansing of input
+who=${QUERY_STRING%%/*}
+who=${who%%;*}
+
+# TODO: Check permissions here.
+# Not implemented for example's sake.
+
+
+
+# Output image.
+image="$mod_root/den/db/i/$who"
+if [ -e "$image" ]; then
+	cat <<-EOF
+	Content-Type: image/jpeg
+
+	EOF
+	cat "$image"
+	exit 0
+else
 	fail_message
 fi
-
-who=${QUERY_STRING%%/*}
-cat << EOF
-Content-Type: image/jpeg
-
-EOF
-cat "$mod_root/den/db/i/$who"

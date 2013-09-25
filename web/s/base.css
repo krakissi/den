@@ -35,22 +35,24 @@ a:hover {
 
 
 #div_pagewrapper {
-	width: 950px;
+	position:relative;
+	width: 981px;
 	margin: 0 auto;
 	margin-bottom: 2em;
 	padding: 0;
+	padding-bottom: 2em;
 	border: 1px solid gray;
 	border-top: none;
 	box-shadow: 4px 4px 3px #e0e0e0;
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 	overflow: hidden;
+	background-color: white;
 }
 
 
 #div_contentwrapper {
 	min-height: 350px;
-	background-color: #ffffff;
 }
 
 
@@ -76,6 +78,9 @@ a:hover {
 
 
 #div_bottombox {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 	background-color: #9090e0;
 	padding: 1em;
 	font-size: 10px;
