@@ -10,9 +10,10 @@ if [ -n "$1" ]; then
 			title="The Den: A Social Network"
 		fi
 		printf "<a href=/den/>%s</a>" "$title"
-	else
-		title="$title - $1"
-		printf "%s" "$title"
+
+		exit 0
 	fi
+	title="$title - $1"
 fi
 
+printf "%s" "$title"
