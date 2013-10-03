@@ -20,6 +20,11 @@ body {
 	padding: 1em;
 }
 
+.p_formal {
+	text-indent: 1.5em;
+	text-align: justify;
+}
+
 a {
 	text-decoration: none;
 	color: blue;
