@@ -56,13 +56,14 @@ a:hover {
 }
 
 
-#div_contentwrapper {
+.div_contentwrapper {
 	min-height: 350px;
 }
 
 
 #div_header {
 	background-color: #9090e0;
+	position: relative;
 	padding: 1em;
 }
 #div_header h1 {

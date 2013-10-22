@@ -38,8 +38,31 @@
 #div_userpro #profiletabular ul#ul_commopt li {
 	padding: 0.1em 0;
 }
-
 #div_userpro p {
 	text-indent: 2em;
 	text-align: justify;
+}
+
+#profile_communications {
+	display: none;
+
+	margin: 1em;
+}
+
+#div_profiletabs {
+	position: absolute;
+	right: 2em;
+	bottom: 0.1em;
+}
+.profiletab {
+	background-color: white;
+	border: solid 1px black;
+	border-bottom: none;
+	padding: 0.1em 0.5em;
+	border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+}
+.profiletab:hover {
+	background-color: #fff0f0;
+	cursor: pointer;
 }

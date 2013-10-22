@@ -6,15 +6,31 @@
 	<!-- Style Sheets -->
 	<link rel=stylesheet type=text/css href=s/base.css>
 	<link rel=stylesheet type=text/css href=s/profile.css>
-</head><body>
+
+	<!-- Scripts -->
+	<script type=text/javascript src=js/core.js></script>
+	<script type=text/javascript src=js/profile.js></script>
+</head><body onload="profile_init()">
 	<div id=div_pagewrapper>
 		<!-- A banner at the top of the page -->
 		<div id=div_header>
 			<h1><????den:title h1 "nobody's profile"></h1>
 			<h2><????den:taglines></h2>
+
+			<div id=div_profiletabs>
+				<span class=profiletab onclick="set_visible('profile_about');">Profile</span>
+				<span class=profiletab onclick="set_visible('profile_communications')">Feed</span>
+			</div>
 		</div>
 
-		<div id=div_contentwrapper>
+		<!-- Communications tab -->
+		<div class=div_contentwrapper id=profile_communications>
+			<h3>News Feed</h3>
+			<p>This is what's going on with nobody.</p>
+		</div>
+
+		<!-- About Me tab -->
+		<div class=div_contentwrapper id=profile_about>
 
 			<!-- Page Content Here!! -->
 			<div id=div_userpro>
