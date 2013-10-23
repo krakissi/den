@@ -55,14 +55,11 @@
 	bottom: 0.1em;
 }
 .profiletab {
+	cursor: pointer;
 	background-color: white;
 	border: solid 1px black;
 	border-bottom: none;
 	padding: 0.1em 0.5em;
 	border-top-left-radius: 0.5em;
 	border-top-right-radius: 0.5em;
-}
-.profiletab:hover {
-	background-color: #fff0f0;
-	cursor: pointer;
 }
