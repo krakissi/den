@@ -31,5 +31,3 @@ function set_visible(d){
 	if(tabid = document.getElementById("tab_"+d))
 		tabid.style.backgroundColor="#ffffff";
 }
-
-
