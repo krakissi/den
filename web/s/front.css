@@ -18,11 +18,3 @@
 
 #div_loginarea { 
 }
-#div_loginarea form label {
-	margin: 0px;
-	padding: 0px;
-	vertical-align: baseline;
-	text-transform: uppercase;
-	font-family: sans-serif;
-	font-size: 10px;
-}

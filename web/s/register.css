@@ -1,0 +1,7 @@
+#div_instructions {
+	max-width: 500px;
+}
+#div_instructions p {
+	text-align: justify;
+	text-indent: 2.5em;
+}

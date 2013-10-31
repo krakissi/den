@@ -5,7 +5,7 @@
 
 	<!-- Style Sheets -->
 	<link rel=stylesheet type=text/css href=s/base.css>
-	<link rel=stylesheet type=text/css href=s/front.css>
+	<link rel=stylesheet type=text/css href=s/register.css>
 </head><body>
 	<div id=div_pagewrapper>
 		<!-- A banner at the top of the page -->
@@ -16,7 +16,43 @@
 
 		<!-- Main page content div -->
 		<div class=div_contentwrapper>
-	
+			<!-- Instructions -->
+			<div class=inlineblock id=div_instructions>
+				<h2>Just the basics!</h2>
+				<p>
+					Eventually you will probably want to add more information to
+					your profile, telling your story to those who visit. For
+					right now, we just need the basics so that your account can
+					be created.
+				</p>
+				<p>
+					You can omit the email address if you're afraid, but your
+					experience with the Den will be better if you provide one.
+				</p>
+			</div>
+
+			<!-- Registration Form -->
+			<div class=inlineblock>
+				<form method=post action=accounts/register>
+					<p>
+						<label for=field_user>Username</label><br>
+						<input name=user id=field_user>
+					</p>
+					<p>
+						<label for=field_pass>Password</label><br>
+						<input name=pass id=field_pass type=password>
+					</p>
+					<p>
+						<label for=field_repass>Retype Password</label><br>
+						<input name=repass id=field_repass type=password>
+					</p>
+					<p>
+						<label for=field_email>Email Address</label><br>
+						<input name=email id=field_email>
+					</p>
+					<input type=submit value="Register">
+				</form>
+			</div>
 		</div>
 
 		<!-- Copyright information to anchor the bottom of the page. -->
