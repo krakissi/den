@@ -5,3 +5,8 @@
 	text-align: justify;
 	text-indent: 2.5em;
 }
+
+#failednotice {
+	color: #ff0000;
+	font-size: 12pt;
+}

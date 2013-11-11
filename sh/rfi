@@ -1,0 +1,9 @@
+#!/bin/bash
+
+case "$QUERY_STRING" in
+	*failed*)
+		cat<<-EOF
+			<span id=failednotice>Registration Failed</span>
+		EOF
+		;;
+esac
