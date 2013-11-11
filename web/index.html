@@ -30,13 +30,17 @@
 
 			<!-- A login form with links to the registration page -->
 			<div id=div_loginarea class=inlineblock>
+				<????den:failed_indicator "Login Failed">
 				<p>Already registered? Login here!</p>
-				<form action=/login.html>
+				<form action=accounts/login method=post>
+					<input type=hidden name=onsuccess value=/den/profile.html>
+					<input type=hidden name=onfailure value=/den/?failed>
+
 					<label for=field_username>Username</label><br>
-					<input name=u id=field_username><br>
+					<input name=name id=field_username><br>
 
 					<label for=field_password>Password</label><br>
-					<input name=p id=field_password><br>
+					<input name=pass type=password id=field_password><br>
 
 					<input type=submit value=Login>
 				</form>

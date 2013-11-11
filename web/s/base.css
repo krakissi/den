@@ -108,3 +108,8 @@ a:hover {
 	font-size: 10px;
 	font-family: sans-serif;
 }
+
+#failednotice {
+	color: #ff0000;
+	font-size: 12pt;
+}

@@ -1,9 +1,15 @@
 #!/bin/bash
 
+if [ -n "$1" ]; then
+	notice=$1
+else
+	notice="Failed"
+fi
+
 case "$QUERY_STRING" in
 	*failed*)
 		cat<<-EOF
-			<span id=failednotice>Registration Failed</span>
+			<span id=failednotice>$notice</span>
 		EOF
 		;;
 esac
