@@ -1,0 +1,53 @@
+#!/bin/bash
+# Create a clean Krakden database.
+
+cat << EOF
+WARNING! This will destroy the Krakden database file.
+
+Press [Ctrl-C] to cancel or [ENTER] to continue.
+EOF
+read meow
+
+database="den.db"
+schema="
+CREATE TABLE profiles (
+	id_profile INTEGER PRIMARY KEY AUTOINCREMENT,
+	name VARCHAR,
+	display VARCHAR,
+	created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE ships (
+	id_user	INTEGER,
+	id_profile INTEGER,
+	ship INTEGER,
+	forged TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE threads (
+	id_thread INTEGER PRIMARY KEY AUTOINCREMENT,
+	vis INTEGER,
+	created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE profilethread (
+	id_profile INTEGER,
+	id_thread INTEGER,
+	ship INTEGER,
+	joined TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE messages (
+	id_profile INTEGER,
+	id_thread INTEGER,
+	content VARCHAR,
+	posted TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+"
+
+if [ -e "$database" ]; then
+	rm -vf "$database"
+fi
+
+if sqlite3 "$database" <<< "$schema"; then
+	echo "Database created."
+else
+	echo "WARNING: Error encountered."
+	exit 1
+fi
