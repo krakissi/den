@@ -5,3 +5,5 @@ failed_indicator=sh/rfi
 copyright=sh/copyright
 taglines=sh/taglines
 title=sh/pagetitle
+
+profile_tool=sh/pt

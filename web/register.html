@@ -12,6 +12,7 @@
 		<div id=div_header>
 			<h1><????den:title h1></h1>
 			<h2><????den:taglines></h2>
+			<????den:profile_tool>
 		</div>
 
 		<!-- Main page content div -->
@@ -38,7 +39,7 @@
 			<div class=inlineblock>
 				<????den:failed_indicator "Registration Failed">
 				<form method=post action=accounts/register>
-					<input type=hidden name=onsuccess value=/den/profile.html>
+					<input type=hidden name=onsuccess value=/den/user.html>
 					<input type=hidden name=onfailure value=/den/register.html?failed>
 					<p>
 						<label for=field_user>Username</label><br>

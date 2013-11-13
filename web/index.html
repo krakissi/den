@@ -12,6 +12,7 @@
 		<div id=div_header>
 			<h1><????den:title h1></h1>
 			<h2><????den:taglines></h2>
+			<????den:profile_tool>
 		</div>
 
 		<!-- Main page content div -->
@@ -33,7 +34,7 @@
 				<????den:failed_indicator "Login Failed">
 				<p>Already registered? Login here!</p>
 				<form action=accounts/login method=post>
-					<input type=hidden name=onsuccess value=/den/profile.html>
+					<input type=hidden name=onsuccess value=/den/user.html>
 					<input type=hidden name=onfailure value=/den/?failed>
 
 					<label for=field_username>Username</label><br>

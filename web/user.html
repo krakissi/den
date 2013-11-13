@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html><head>
+	<title><????den:title "Your Profile"></title>
+	<meta charset=utf-8>
+
+	<!-- Style Sheets -->
+	<link rel=stylesheet type=text/css href=s/base.css>
+	<link rel=stylesheet type=text/css href=s/profile.css>
+
+	<!-- Scripts -->
+	<script type=text/javascript src=js/core.js></script>
+	<script type=text/javascript src=js/profile.js></script>
+</head><body onload="profile_init()">
+	<div id=div_pagewrapper>
+		<!-- A banner at the top of the page -->
+		<div id=div_header>
+			<h1><????den:title h1 "nobody's profile"></h1>
+			<h2><????den:taglines></h2>
+			<????den:profile_tool>
+		</div>
+
+		<div class=div_contentwrapper>
+			<p>User management page.</p>
+		</div>
+
+		<!-- Copyright information to anchor the bottom of the page. -->
+		<div id=div_bottombox>
+			<????den:copyright> - Please don't steal this. - No really, it's important! - <a href=.>Privacy Information</a>
+		</div>
+	</div>
+</body></html>

@@ -1,0 +1,16 @@
+#!/bin/bash
+# profile information
+# Mike Perron (2013)
+#
+# Creates markup for user/profile information.
+
+drawtool(){
+	if [ -z "$kraknet_user" ]; then exit 1; fi
+	cat <<-EOF
+		<div id=profile_tool>
+			<a href=/den/user.html>$kraknet_user</a>
+		</div>
+	EOF
+}
+
+if [ "$kraknet_user_auth" == "OK" ]; then drawtool; fi

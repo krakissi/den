@@ -7,8 +7,7 @@ body {
 
 	background-image: url('grafx/2x1graybg.png');
 	background-repeat: repeat;
-/*
-	background-attachment: fixed;
+/*	background-attachment: fixed;
 	This would be cool, except that it's a major performance hit.
 	I want this to be as netbook-friendly as possible.
 */
@@ -112,4 +111,16 @@ a:hover {
 #failednotice {
 	color: #ff0000;
 	font-size: 12pt;
+}
+
+#profile_tool {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	padding: 0.1em 0.5em;
+	background-color: white;
+	border-bottom-left-radius: 5px;
+	border-bottom: solid 1px black;
+	border-left: solid 1px black;
+	font-size: 90%;
 }
