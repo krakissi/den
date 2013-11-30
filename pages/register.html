@@ -1,66 +1,39 @@
-<!DOCTYPE html>
-<html><head>
-	<title><????den:title></title>
-	<meta charset=utf-8>
+<!-- Instructions -->
+<div class=inlineblock id=div_instructions>
+	<h2>Create an Account!</h2>
+	<p>
+		Your account allows you to create profile pages. You should
+		pick a good name, because it will also be the name
+		associated with your first profile. Names may be any mix of
+		lowercase letters and numbers, no shorter than four
+		characters.
+	</p>
+	<p>
+		Your password should be carefully selected. It must be at
+		least six characters long, but there are no other
+		restrictions. Don't lose your password, as there is
+		currently no automatic recovery system!
+	</p>
+</div>
 
-	<!-- Style Sheets -->
-	<link rel=stylesheet type=text/css href=s/base.css>
-	<link rel=stylesheet type=text/css href=s/register.css>
-</head><body>
-	<div id=div_pagewrapper>
-		<!-- A banner at the top of the page -->
-		<div id=div_header>
-			<h1><????den:title h1></h1>
-			<h2><????den:taglines></h2>
-			<????den:profile_tool>
-		</div>
-
-		<!-- Main page content div -->
-		<div class=div_contentwrapper>
-			<!-- Instructions -->
-			<div class=inlineblock id=div_instructions>
-				<h2>Create an Account!</h2>
-				<p>
-					Your account allows you to create profile pages. You should
-					pick a good name, because it will also be the name
-					associated with your first profile. Names may be any mix of
-					lowercase letters and numbers, no shorter than four
-					characters.
-				</p>
-				<p>
-					Your password should be carefully selected. It must be at
-					least six characters long, but there are no other
-					restrictions. Don't lose your password, as there is
-					currently no automatic recovery system!
-				</p>
-			</div>
-
-			<!-- Registration Form -->
-			<div class=inlineblock>
-				<????den:failed_indicator "Registration Failed">
-				<form method=post action=accounts/register>
-					<input type=hidden name=onsuccess value=/den/user.html>
-					<input type=hidden name=onfailure value=/den/register.html?failed>
-					<p>
-						<label for=field_user>Username</label><br>
-						<input name=name id=field_user>
-					</p>
-					<p>
-						<label for=field_pass>Password</label><br>
-						<input name=pass id=field_pass type=password>
-					</p>
-					<p>
-						<label for=field_repass>Retype Password</label><br>
-						<input name=repass id=field_repass type=password>
-					</p>
-					<input type=submit value="Register">
-				</form>
-			</div>
-		</div>
-
-		<!-- Copyright information to anchor the bottom of the page. -->
-		<div id=div_bottombox>
-			<????den:copyright> - Please don't steal this. - No really, it's important! - <a href=.>Privacy Information</a>
-		</div>
-	</div>
-</body></html>
+<!-- Registration Form -->
+<div class=inlineblock>
+	<????den:failed_indicator "Registration Failed">
+	<form method=post action=accounts/register>
+		<input type=hidden name=onsuccess value=/den/user.html>
+		<input type=hidden name=onfailure value=/den/register.html?failed>
+		<p>
+			<label for=field_user>Username</label><br>
+			<input name=name id=field_user>
+		</p>
+		<p>
+			<label for=field_pass>Password</label><br>
+			<input name=pass id=field_pass type=password>
+		</p>
+		<p>
+			<label for=field_repass>Retype Password</label><br>
+			<input name=repass id=field_repass type=password>
+		</p>
+		<input type=submit value="Register">
+	</form>
+</div>

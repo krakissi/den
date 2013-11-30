@@ -1,111 +1,67 @@
-<!DOCTYPE html>
-<html><head>
-	<title><????den:title "Your Profile"></title>
-	<meta charset=utf-8>
+<!-- Page Content Here!! -->
+<div id=div_userpro>
+	<div id=profiletabular>
+		<!-- Profile Image -->
+		<img id=profileimg src=bin/userimage?nobody>
 
-	<!-- Style Sheets -->
-	<link rel=stylesheet type=text/css href=s/base.css>
-	<link rel=stylesheet type=text/css href=s/profile.css>
+		<!-- Things to do -->
+		<ul id=ul_commopt>
+			<li>
+				<a href=#lkjsdf>Send Message</a>
+			</li>
+			<li>
+				<a href=#lkjsdf>Report Abuse</a>
+			</li>
+		</ul>
 
-	<!-- Scripts -->
-	<script type=text/javascript src=js/core.js></script>
-	<script type=text/javascript src=js/profile.js></script>
-</head><body onload="profile_init()">
-	<div id=div_pagewrapper>
-		<!-- A banner at the top of the page -->
-		<div id=div_header>
-			<h1><????den:title h1 "nobody's profile"></h1>
-			<h2><????den:taglines></h2>
-
-			<????den:profile_tool>
-			<div id=div_profiletabs>
-				<span class=profiletab id=tab_profile_about onclick="set_visible('profile_about');">Profile</span>
-				<span class=profiletab id=tab_profile_communications onclick="set_visible('profile_communications')">Feed</span>
-			</div>
-		</div>
-
-		<!-- Communications tab -->
-		<div class=div_contentwrapper id=profile_communications>
-			<h3>News Feed</h3>
-			<p>This is what's going on with nobody.</p>
-		</div>
-
-		<!-- About Me tab -->
-		<div class=div_contentwrapper id=profile_about>
-
-			<!-- Page Content Here!! -->
-			<div id=div_userpro>
-				<div id=profiletabular>
-					<!-- Profile Image -->
-					<img id=profileimg src=bin/userimage?nobody>
-
-					<!-- Things to do -->
-					<ul id=ul_commopt>
-						<li>
-							<a href=#lkjsdf>Send Message</a>
-						</li>
-						<li>
-							<a href=#lkjsdf>Report Abuse</a>
-						</li>
-					</ul>
-
-					<!-- Info Table -->
-					<table>
-						<tr>
-							<th>Real Name</th>
-							<td>John Smith</td>
-						</tr>
-						<tr>
-							<th>Sex</th>
-							<td>????</td>
-						</tr>
-						<tr>
-							<th>Birthday</th>
-							<td>Month/Day</td>
-						</tr>
-						<tr>
-							<th>Major</th>
-							<td>$majorfocus</td>
-						</tr>
-					</table>
-				</div>
-
-				<!-- About Me -->
-				<h3>A quick one-liner about yourself!</h3>
-				<p>
-					In this section of the page, a short biography or
-					introduction about the user would be displayed. Each user
-					writes his own biography. Only friends of the user are
-					allowed to see them. The single line above this that acts as
-					a header for their page is visible to everyone.
-				</p>
-				<p>
-					Privacy is very important for the Den. This is why every
-					user is referenced by their self-assigned usernames. If a
-					user would like to have his real name displayed on the
-					profile page, it can be added to his personal information
-					and placed in the table on the side of his profile.
-				</p>
-				<p>
-					User images are <strong>not</strong> live on the internet.
-					They can only be accessed through a script which checks for
-					the user's login session cookie and verifies that the
-					logged-in user has permission to see that user's picture.
-					This is a sharp contrast from Facebook, where the direct
-					link to any image can be shared and accessed by anyone, even
-					those who would normally not have permission to see it.
-				</p>
-				<p>
-					This security also saves network resources, because images
-					cannot be hotlinked on other websites.
-				</p>
-			</div>
-
-		</div>
-
-		<!-- Copyright information to anchor the bottom of the page. -->
-		<div id=div_bottombox>
-			<????den:copyright> - Please don't steal this. - No really, it's important! - <a href=.>Privacy Information</a>
-		</div>
+		<!-- Info Table -->
+		<table>
+			<tr>
+				<th>Real Name</th>
+				<td>John Smith</td>
+			</tr>
+			<tr>
+				<th>Sex</th>
+				<td>????</td>
+			</tr>
+			<tr>
+				<th>Birthday</th>
+				<td>Month/Day</td>
+			</tr>
+			<tr>
+				<th>Major</th>
+				<td>$majorfocus</td>
+			</tr>
+		</table>
 	</div>
-</body></html>
+
+	<!-- About Me -->
+	<h3>A quick one-liner about yourself!</h3>
+	<p>
+		In this section of the page, a short biography or
+		introduction about the user would be displayed. Each user
+		writes his own biography. Only friends of the user are
+		allowed to see them. The single line above this that acts as
+		a header for their page is visible to everyone.
+	</p>
+	<p>
+		Privacy is very important for the Den. This is why every
+		user is referenced by their self-assigned usernames. If a
+		user would like to have his real name displayed on the
+		profile page, it can be added to his personal information
+		and placed in the table on the side of his profile.
+	</p>
+	<p>
+		User images are <strong>not</strong> live on the internet.
+		They can only be accessed through a script which checks for
+		the user's login session cookie and verifies that the
+		logged-in user has permission to see that user's picture.
+		This is a sharp contrast from Facebook, where the direct
+		link to any image can be shared and accessed by anyone, even
+		those who would normally not have permission to see it.
+	</p>
+	<p>
+		This security also saves network resources, because images
+		cannot be hotlinked on other websites.
+	</p>
+</div>
