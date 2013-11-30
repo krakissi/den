@@ -1,0 +1,28 @@
+<!-- Reasons to connect to the network -->
+<div id=div_joinuspls class="inlineblock p_formal">
+	<p>You should create an account. Why? Just look at all these
+	great sample pages showing how the user interface for the site
+	works!</p>
+	<ul>
+		<li>Check out this <a href=profile.html>example profile</a>!</li>
+		<li>Join from the <a href=register.html>registration page</a>.</li>
+	</ul>
+</div>
+
+<!-- A login form with links to the registration page -->
+<div id=div_loginarea class=inlineblock>
+	<????den:failed_indicator "Login Failed">
+	<p>Already registered? Login here!</p>
+	<form action=accounts/login method=post>
+		<input type=hidden name=onsuccess value=/den/user.html>
+		<input type=hidden name=onfailure value=/den/?failed>
+
+		<label for=field_username>Username</label><br>
+		<input name=name id=field_username><br>
+
+		<label for=field_password>Password</label><br>
+		<input name=pass type=password id=field_password><br>
+
+		<input type=submit value=Login>
+	</form>
+</div>
