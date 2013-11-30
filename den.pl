@@ -4,18 +4,18 @@
 
 use strict;
 
+my $name=$0;
+$name=~s/^.*\/([^\/]*)$/\1/;
+
 sub serv {
 	my $page=shift;
 	my $output=`kraknet pages/header pages/$page pages/footer 2>&1`;
-
 	printf "$output";
-
 	exit 0
 }
 
-my $homepath=`mod_home den`;
-chomp($homepath);
+chomp(my $homepath=`mod_home den`);
 chdir($homepath) or die "Can't get home.";
 
-serv("index.html");
+serv($name);
 exit 0
