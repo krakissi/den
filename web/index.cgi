@@ -1,10 +1,12 @@
 #!/usr/bin/perl
+# Serve Den pages
+# Mike Perron (2013)
 
 use strict;
 
 sub serv {
 	my $page=shift;
-	my $output=`kraknet "pages/header" "pages/$page" "pages/footer"`;
+	my $output=`kraknet pages/header pages/$page pages/footer 2>&1`;
 
 	printf "$output";
 
@@ -16,5 +18,4 @@ chomp($homepath);
 chdir($homepath) or die "Can't get home.";
 
 serv("index.html");
-
 exit 0
