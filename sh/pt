@@ -12,5 +12,18 @@ drawtool(){
 		</div>
 	EOF
 }
+drawlogin(){
+	cat <<-EOF
+		<div id=profile_tool>
+			<form method=post action=accounts/login>
+				<input type=hidden name=onsuccess value=/den/>
+				<input type=hidden name=onfailure value=/den/?failure>
+				<input name=name>
+				<input type=password name=pass>
+				<input type=submit value=Login>
+			</form>
+		</div>
+	EOF
+}
 
-if [ "$kraknet_user_auth" == "OK" ]; then drawtool; fi
+if [ "$kraknet_user_auth" == "OK" ]; then drawtool; else drawlogin; fi

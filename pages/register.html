@@ -1,27 +1,28 @@
-<!-- Instructions -->
-<div class=inlineblock id=div_instructions>
-	<h2>Create an Account!</h2>
+<!-- Reasons to connect to the network -->
+<div id=div_joinuspls class="inlineblock p_formal">
 	<p>
-		Your account allows you to create profile pages. You should
-		pick a good name, because it will also be the name
-		associated with your first profile. Names may be any mix of
-		lowercase letters and numbers, no shorter than four
-		characters.
+		You should create an account. Why? Just look at all these great sample
+		pages showing how the user interface for the site works!
 	</p>
 	<p>
-		Your password should be carefully selected. It must be at
-		least six characters long, but there are no other
-		restrictions. Don't lose your password, as there is
-		currently no automatic recovery system!
+		Your account allows you to create profile pages. You should pick a good
+		name, because it will also be the name associated with your first
+		profile. Names may be any mix of lowercase letters and numbers, no
+		shorter than four characters.
+	</p>
+	<p>
+		Your password should be carefully selected. It must be at least six
+		characters long, but there are no other restrictions. Don't lose your
+		password, as there is currently no automatic recovery system!
 	</p>
 </div>
 
-<!-- Registration Form -->
-<div class=inlineblock>
+<!-- A login form with links to the registration page -->
+<div id=div_loginarea class=inlineblock>
 	<????den:failed_indicator "Registration Failed">
 	<form method=post action=accounts/register>
-		<input type=hidden name=onsuccess value=/den/user.html>
-		<input type=hidden name=onfailure value=/den/register.html?failed>
+		<input type=hidden name=onsuccess value=/den/>
+		<input type=hidden name=onfailure value=/den/?failed>
 		<p>
 			<label for=field_user>Username</label><br>
 			<input name=name id=field_user>

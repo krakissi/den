@@ -17,5 +17,8 @@ sub serv {
 chomp(my $homepath=`mod_home den`);
 chdir($homepath) or die "Can't get home.";
 
-serv($name);
+chomp(my $auth=qx/mod_find accounts:auth/);
+if($auth=~s/^OK (.*)$/\1/){ serv($name) }
+else { serv("register.html") }
+
 exit 0
