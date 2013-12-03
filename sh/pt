@@ -8,19 +8,22 @@ drawtool(){
 	if [ -z "$kraknet_user" ]; then exit 1; fi
 	cat <<-EOF
 		<div id=profile_tool>
-			<a href=/den/user.html>$kraknet_user</a>
+			<a href=/den/>$kraknet_user</a>
+			|
+			<a href=/den/accounts/logout>logout</a>
 		</div>
 	EOF
 }
 drawlogin(){
 	cat <<-EOF
 		<div id=profile_tool>
-			<form method=post action=accounts/login>
+			<form name=pt_login method=post action=accounts/login>
 				<input type=hidden name=onsuccess value=/den/>
 				<input type=hidden name=onfailure value=/den/?failure>
 				<input name=name>
 				<input type=password name=pass>
-				<input type=submit value=Login>
+				<input type=submit value="Login" style="display:none;">
+				<a onclick="document.pt_login.submit();">login</a>
 			</form>
 		</div>
 	EOF

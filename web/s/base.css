@@ -21,6 +21,10 @@ form label {
 	font-family: sans-serif;
 	font-size: 10px;
 }
+form input {
+	border: solid 1px gray;
+	padding: 0.1em;
+}
 
 .inlineblock {
 	display: inline-block;
@@ -66,6 +70,7 @@ a:hover {
 
 .div_contentwrapper {
 	min-height: 350px;
+	margin: 0 1em;
 }
 
 
