@@ -3,7 +3,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-size: 14pt;
-	font-family: sans-serif;
+	font-family: "Liberation Serif", serif;
 
 	background-image: url('grafx/2x1graybg.png');
 	background-repeat: repeat;
@@ -73,11 +73,16 @@ a:hover {
 	margin: 0 1em;
 }
 
+h1, h2, h3 {
+	font-family: sans-serif;
+	margin: 0;
+}
 
 #div_header {
 	background-color: #9090e0;
 	position: relative;
-	padding: 1em;
+	padding: 0.3em 1em;
+	font-family: sans-serif;
 }
 #div_header h1 {
 	text-shadow: 2px 2px #000000;
