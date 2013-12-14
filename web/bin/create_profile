@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+
+use strict;
+
+my $database = "den.db";
+
+chomp(my $homepath = qx/mod_home den/);
+chdir($homepath) or die "Can't get home.";
+
+my %postvalues;
+my $postdata = <STDIN>;
+if(length($postdata)>0){
+	my @pairs=split(/[;&]/, $postdata);
+	foreach my $pair (@pairs){
+		my ($name, $value) = split(/=/, $pair);
+		$value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
+		$postvalues{$name} = $value; 
+		chomp($postvalues{$name});
+	}
+}
+
+printf "Content-Type: text/plain\n\n$postvalues{'pname'}\n";
+
+exit 0
