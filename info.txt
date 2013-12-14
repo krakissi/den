@@ -8,3 +8,5 @@ title=sh/pagetitle
 
 profile_tool=sh/pt
 profile_list=sh/lpfls
+profile_text=sh/profile_text
+id_profile=sh/id_profile

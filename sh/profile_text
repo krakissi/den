@@ -1,0 +1,10 @@
+#!/bin/bash
+# Write out profile copy, if it exists.
+
+id=$(mod_find den:id_profile)
+
+if [ -e "db/p/$id" ]; then cat "db/p/$id"
+else cat << EOF
+<p><i>This user has not yet written their profile.</i></p>
+EOF
+fi
