@@ -1,9 +1,18 @@
 #div_userpro {
 	padding: 1em;
 }
+#profilename {
+	text-align: right;
+	border-bottom: solid 1px black;
+	font-size: 200%;
+	text-shadow: 2px 2px #e8e8e8;
+}
 #div_userpro #profiletabular {
 	float: right;
 	padding: 1em;
+	padding-top:0;
+	max-width: 300px;
+	font-size: 10pt;
 }
 #div_userpro #profiletabular #profileimg {
 	width: 300px;
