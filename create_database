@@ -12,6 +12,7 @@ database="den.db"
 schema="
 CREATE TABLE profiles (
 	id_profile VARCHAR,
+	id_user INTEGER,
 	name VARCHAR,
 	display VARCHAR,
 	created TIMESTAMP DEFAULT CURRENT_TIMESTAMP

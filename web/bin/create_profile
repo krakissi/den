@@ -2,6 +2,9 @@
 
 use strict;
 
+my $sql;
+my $id_user;
+my $id_profile;
 my $database = "den.db";
 
 chomp(my $homepath = qx/mod_home den/);
@@ -18,7 +21,35 @@ if(length($postdata)>0){
 		chomp($postvalues{$name});
 	}
 }
+my $pname = $postvalues{'pname'};
 
-printf "Content-Type: text/plain\n\n$postvalues{'pname'}\n";
+# Create a new profile ID.
+sub get_pid {
+	my $pid = qx\tr -dc "[:alpha:]" < /dev/urandom | head -c 64\;
+
+	my $sql = qq/SELECT id_profile FROM profiles WHERE id_profile='$pid';/;
+	chomp(my $response = qx/sqlite3 "$database" "$sql"/);
+
+	# Recurse if the profile ID is taken already. (Pretty much can't happen.)
+	if(length($response)>0){ return &get_pid }
+
+	return $pid;
+}
+
+printf "Content-Type: text/plain\n\n";
+
+chomp($id_user = qx/mod_find accounts:id/);
+if($?!=0){
+	printf "WARNING: accounts:id returned $?\n";
+}
+
+$id_profile = &get_pid;
+printf "$id_user: $pname\n$id_profile\n";
+
+$sql = qq/INSERT INTO profiles (id_profile, id_user, name) VALUES ('$id_profile', '$id_user', '$pname');/;
+qx/sqlite3 "$database" "$sql"/;
+if($?!=0){ exit 1 }
+
+printf "Insert OK.\n";
 
 exit 0
