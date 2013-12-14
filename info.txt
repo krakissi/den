@@ -7,3 +7,4 @@ taglines=sh/taglines
 title=sh/pagetitle
 
 profile_tool=sh/pt
+profile_list=sh/lpfls

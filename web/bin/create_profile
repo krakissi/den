@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+# mperron (2013)
 
 use strict;
 
@@ -23,7 +24,6 @@ if(length($postdata)>0){
 }
 my $pname = $postvalues{'pname'};
 
-# Create a new profile ID.
 sub get_pid {
 	my $pid = qx\tr -dc "[:alpha:]" < /dev/urandom | head -c 64\;
 
@@ -35,21 +35,30 @@ sub get_pid {
 
 	return $pid;
 }
+sub fail {
+	my $msg = shift;
 
-printf "Content-Type: text/plain\n\n";
-
-chomp($id_user = qx/mod_find accounts:id/);
-if($?!=0){
-	printf "WARNING: accounts:id returned $?\n";
+	printf "Status: 302 $msg\nLocation: /den/";
+	exit 1
 }
 
-$id_profile = &get_pid;
-printf "$id_user: $pname\n$id_profile\n";
+# Get user ID.
+chomp($id_user = qx/mod_find accounts:id/);
+if($?!=0){ &fail("Get id_user Failed") }
 
+# Create a profile ID.
+$id_profile = &get_pid;
+
+# Create profile entry in database.
 $sql = qq/INSERT INTO profiles (id_profile, id_user, name) VALUES ('$id_profile', '$id_user', '$pname');/;
 qx/sqlite3 "$database" "$sql"/;
-if($?!=0){ exit 1 }
+if($?!=0){ &fail("Insert Failed") }
 
-printf "Insert OK.\n";
+
+# Redirect on success.
+my $ref = $ENV{'HTTP_REFERER'};
+if(length($ref)==0){ $ref = "/den/" }
+printf "Status: 302 Profile Created\nLocation: $ref\n\n";
+
 
 exit 0

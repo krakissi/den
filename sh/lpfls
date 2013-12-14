@@ -1,0 +1,33 @@
+#!/usr/bin/perl
+# Lists available profiles owned by the current user.
+
+use strict;
+
+# Preamble
+printf "<div id=profile_list>";
+
+chomp(my $homepath = qx/mod_home den/);
+chdir($homepath) or die "Can't get home";
+my $database = "den.db";
+
+chomp(my $id_user = qx/mod_find accounts:id/);
+
+printf "Your Current Profiles:";
+
+printf "<ul>";
+if(length($id_user)>0){
+	my $sql = qq/SELECT id_profile, name FROM profiles WHERE id_user='$id_user';/;
+	
+	my $plist = qx/sqlite3 "$database" "$sql"/;
+	if($?!=0){ printf "Database Error" }
+
+	foreach my $line(split('\n', $plist)){
+		my ($id_profile, $name) = split('\|', $line, 2);
+		printf "<li><a href=\"/den/profile.html?id=$id_profile\">$name</a></li>";
+	}
+}
+printf "</ul>";
+
+# Close and Quit.
+printf "</div>";
+exit 0
