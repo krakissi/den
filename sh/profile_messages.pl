@@ -46,14 +46,16 @@ foreach my $thread(split(/\n/, $threads)){
 	my $resp = qx/sqlite3 "$database" "$sql"/;
 
 	# Print message set.
+	my $first = 1;
 	printf "<div class=profile_thread>";
 	foreach my $msg(split(/\n/, $resp)){
 		my($profile, $name, $display, $posted, $content) = split('\|', $msg);
 		$content = qx/decode "$content"/;
 
 		if(length($display)>0){ $name = $display }
+		if($first == 1){ $first=0; printf "<div class=\"profile_message profile_message_first\">" }
+		else { printf "<div class=profile_message>" }
 		printf qq{
-			<div class=profile_message>
 				<span class=profile_message_posted>$posted</span>
 				<span class=profile_message_profilename>$name</span>
 				<p class=profile_message_content>$content</p>

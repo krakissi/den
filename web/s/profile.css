@@ -110,24 +110,29 @@ textarea {
 .profile_thread {
 	border-bottom: solid 1px black;
 	width: 550px;
-	padding-bottom: 2em;
+	padding-bottom: 1em;
 }
 .profile_message {
 	margin-top: 1em;
 	position: relative;
-	padding-bottom: 2em;
+	padding-bottom: 1.5em;
+	border-bottom: dashed 1px #e8e8e8;
+	font-size: 10pt;
+}
+.profile_message_first {
+	font-size: 12pt;
 }
 .profile_message_posted {
 	position: absolute;
 	bottom: 0;
 	right: 0;
-	font-size: 50%;
+	font-size: 8pt;
 }
 .profile_message_profilename {
 	position: absolute;
 	bottom: 1em;
 	right: 0;
-	font-size: 80%;
+	font-size: 10pt;
 	font-style: oblique;
 }
 .profile_message_content {
