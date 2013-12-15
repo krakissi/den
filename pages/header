@@ -12,7 +12,7 @@
 	<div id=div_pagewrapper>
 		<!-- A banner at the top of the page -->
 		<div id=div_header>
-			<h1><????den:title h1></h1>
+			<h1><a href=/den/>The Den</a></h1>
 			<h2><????den:taglines></h2>
 			<????den:profile_tool>
 		</div>

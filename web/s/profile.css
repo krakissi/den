@@ -3,7 +3,6 @@
 }
 #profilename {
 	text-align: right;
-	border-bottom: solid 1px black;
 	font-size: 200%;
 	text-shadow: 2px 2px #e8e8e8;
 }
@@ -16,6 +15,8 @@
 }
 #div_userpro #profiletabular #profileimg {
 	width: 300px;
+	border-top: solid 1px black;
+	border-bottom: solid 1px black;
 }
 #div_userpro #profiletabular table {
 	border-left: solid 1px black;

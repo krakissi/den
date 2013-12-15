@@ -4,7 +4,7 @@
 failed_indicator=sh/rfi
 copyright=sh/copyright
 taglines=sh/taglines
-title=sh/pagetitle
+title=sh/pagetitle.pl
 
 profile_tool=sh/pt
 profile_list=sh/lpfls
