@@ -8,6 +8,7 @@
 }
 #div_userpro #profiletabular {
 	float: right;
+	margin-left: 25px;
 	padding: 1em;
 	padding-top:0;
 	max-width: 300px;
@@ -72,4 +73,33 @@
 	padding: 0.1em 0.5em;
 	border-top-left-radius: 0.5em;
 	border-top-right-radius: 0.5em;
+}
+
+#profile_postcontrols {
+	width: 550px;
+}
+#profile_postcontrols div {
+	position: relative;
+	height: 30px;
+}
+#profile_postcontrols_postbutton {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	background-color: #9090f0;
+	border: solid 1px black;
+	padding: 1px 7px;
+	color: white;
+}
+#profile_postcontrols_postbutton:hover {
+	background-color: #8080f0;
+	cursor: pointer;
+}
+#profile_postmessage {
+	padding: 10px;
+	width: 528px;
+	height: 65px;
+	border: solid 1px #e8e8e8;
+	resize: vertical;
+	font-family: sans-serif;
 }

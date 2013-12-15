@@ -10,11 +10,19 @@
 		<????den:profile_text>
 	</div>
 
-	<h3>Feed</h3>
+	<div id=profile_postcontrols>
+		<form method=post action=bin/post_message>
+			<input type=hidden name=id_profile value="<????den:id_profile>">
+			<textarea id=profile_postmessage name=message></textarea>
+		</form>
+		<div>
+			<span id=profile_postcontrols_postbutton>Post</span>
+		</div>
+	</div>
 
-	<p>Stories about what <????den:profile_name> has been doing would be placed
-	here for everyone to read. Private conversations would only be shown if you
-	are the user who owns this profile.</p>
-
+	<div>
+		<p>Some text context below the entry field in a paragraph.</p>
+		<p>More such text content in an organized paragraph. Both of these are contained in the same div.</p>
+	</div>
 
 </div>
