@@ -1,0 +1,88 @@
+#!/usr/bin/perl
+use strict;
+use URI::Escape;
+
+my $id_thread;
+my $database = "den.db";
+chomp(my $homepath = qx/mod_home den/);
+chdir($homepath) or die "Can't get home.";
+
+my %postvalues;
+my $postdata = <STDIN>;
+if(length($postdata)>0){
+	my @pairs=split(/[;&]/, $postdata);
+	foreach my $pair (@pairs){
+		my ($name, $value) = split(/=/, $pair);
+
+		$value =~ s/\+/ /g;
+		$value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
+
+		$postvalues{$name} = $value; 
+		chomp($postvalues{$name});
+	}
+}
+
+sub get_pid {
+	my $pid = qx\tr -dc "[:alpha:]" < /dev/urandom | head -c 16\;
+
+	my $sql = qq/SELECT id_thread FROM threads WHERE id_thread='$pid';/;
+	chomp(my $response = qx/sqlite3 "$database" "$sql"/);
+
+	# Recurse if the ID is taken already. (Pretty much can't happen.)
+	if(length($response)>0){ return &get_pid }
+
+	return $pid;
+}
+sub create_thread {
+	my $vis = shift;
+
+	# Create a new thread.
+	$id_thread = &get_pid();
+	my $sql = qq{
+		INSERT INTO threads(id_thread, vis) VALUES('$id_thread', '$vis');
+	};
+	qx/sqlite3 "$database" "$sql"/;
+
+	# Associate it with the profile it's sent to.
+	my $id_profile = $postvalues{'id_profile'};
+	if($id_profile eq ""){ die "No Post Target" }
+
+	$sql = qq{
+		INSERT INTO profilethread(id_profile, id_thread, ship)
+		VALUES('$id_profile', '$id_thread', '0');
+	};
+	qx/sqlite3 "$database" "$sql"/;
+}
+
+# Create the thread if there isn't an appropriate one.
+if(length($postvalues{'thread'})>0){ $id_thread = $postvalues{'thread'} }
+else { &create_thread('1') }
+
+
+# Verify that the poster is participating in the thread.
+my $id_profile = $postvalues{'from_id_profile'};
+if($id_profile eq ""){ die "No Poster" }
+my $sql = qq{
+	SELECT id_thread FROM profilethread
+	WHERE id_thread='$id_thread' AND id_profile='$id_profile';
+};
+my $resp = qx/sqlite3 "$database" "$sql"/;
+if($resp eq ""){
+	$sql = qq{
+		INSERT INTO profilethread(id_profile, id_thread, ship)
+		VALUES('$id_profile', '$id_thread', '1');
+	};
+	qx/sqlite3 "$database" "$sql"/;
+}
+
+# Insert the post message.
+my $message = uri_escape($postvalues{'message'});
+$sql = qq{
+	INSERT INTO messages(id_profile, id_thread, content)
+	VALUES('$id_profile', '$id_thread', '$message');
+};
+qx/sqlite3 "$database" "$sql"/;
+
+my $ref = $ENV{'HTTP_REFERER'};
+if($ref eq ""){ $ref = "/" }
+printf "Status: 302 Message Posted\nLocation: $ref\n\n";

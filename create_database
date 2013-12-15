@@ -24,19 +24,19 @@ CREATE TABLE ships (
 	forged TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE threads (
-	id_thread INTEGER PRIMARY KEY AUTOINCREMENT,
+	id_thread VARCHAR,
 	vis INTEGER,
 	created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE profilethread (
 	id_profile VARCHAR,
-	id_thread INTEGER,
+	id_thread VARCHAR,
 	ship INTEGER,
 	joined TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE messages (
 	id_profile VARCHAR,
-	id_thread INTEGER,
+	id_thread VARCHAR,
 	content VARCHAR,
 	posted TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
