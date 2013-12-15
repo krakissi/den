@@ -14,10 +14,13 @@
 		<form method=post action=bin/post_message>
 			<input type=hidden name=id_profile value="<????den:id_profile>">
 			<textarea id=profile_postmessage name=message></textarea>
+			<div id=profile_postcontrols_buttons>
+				<select id=profile_postcontrols_selectprofile name=from_id_profile>
+					<????den:profile_optionlist>
+				</select>
+				<input type=submit value=Post>
+			</div>
 		</form>
-		<div>
-			<span id=profile_postcontrols_postbutton>Post</span>
-		</div>
 	</div>
 
 	<div>

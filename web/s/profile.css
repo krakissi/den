@@ -76,19 +76,22 @@
 
 #profile_postcontrols {
 	width: 550px;
+	text-align: right;
+	vertical-align: bottom;
 }
 #profile_postcontrols div {
+	margin-top: 5px;
 	position: relative;
 	height: 30px;
 }
+#profile_postcontrols_selectprofile {
+	min-width: 150px;
+}
 #profile_postcontrols_postbutton {
-	position: absolute;
-	right: 0px;
-	bottom: 0px;
 	background-color: #9090f0;
 	border: solid 1px black;
-	padding: 1px 7px;
 	color: white;
+	height: 22px;
 }
 #profile_postcontrols_postbutton:hover {
 	background-color: #8080f0;
