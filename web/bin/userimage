@@ -18,7 +18,9 @@ if [ -z "$QUERY_STRING" ]; then fail_message; fi
 
 # Primitive cleansing of input
 who=${QUERY_STRING%%/*}
+scale=${who##*&}
 who=${who%%;*}
+who=${who%%&*}
 
 # TODO: Check permissions here.
 # Not implemented for example's sake.
@@ -29,10 +31,14 @@ who=${who%%;*}
 image="$mod_root/den/db/i/$who"
 if [ -e "$image" ]; then
 	cat <<-EOF
-	Content-Type: image/jpeg
+	Content-Type: image/png
 
 	EOF
-	cat "$image"
+	if [ "$scale" == "scale" ]; then
+		convert -resize 300x "$image" png:-
+	else
+		convert "$image" png:-
+	fi
 	exit 0
 else
 	fail_message
