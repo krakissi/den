@@ -1,0 +1,32 @@
+#!/usr/bin/perl
+use strict;
+use CGI;
+
+chomp(my $homepath = qx/mod_home den/);
+chdir($homepath) or die "Can't get home.";
+
+my $cgi = new CGI();
+
+my $id_profile = $cgi->param("id_profile");
+my $img = $cgi->param("img");
+
+if(length($img)==0){ printf "No image provided.\n"; exit 0 }
+
+open(TMPFILE, ">/tmp/$id_profile.image");
+my $n = 0;
+my $t = 0;
+my $buffer = "";
+while($n = read($img, $buffer, 1024)){
+	print TMPFILE "$buffer";
+	$t+=$n;
+}
+close(TMPFILE);
+
+if($t > 0){
+	qx{mv "/tmp/$id_profile.image" "db/i/$id_profile"};
+}
+
+my $ref = $ENV{'HTTP_REFERER'};
+if($ref eq ""){ $ref = "/" }
+printf "Status: 302 Upload Completed\nLocation: $ref\n\n";
+exit 0

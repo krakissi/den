@@ -3,9 +3,11 @@
 		<a href="bin/userimage?<????den:id_profile>">
 			<img src="bin/userimage?<????den:id_profile>&scale" border=0>
 		</a>
-		<p>
-			File uploader goes here.
-		</p>
+		<form method=post action=bin/dumpimage enctype=multipart/form-data>
+			<input type=hidden name=id_profile value="<????den:id_profile>">
+			<input type=file name=img>
+			<input type=submit value=Upload>
+		</form>
 	</div>
 	<div>
 		<form method=post action=bin/update_profile>

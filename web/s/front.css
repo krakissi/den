@@ -27,3 +27,9 @@
 	padding: 1em;
 	border-left: solid 1px black;
 }
+#usertools hr {
+	border: solid 1px #e8e8e8;
+}
+#usernotifications {
+	max-width: 550px;
+}
