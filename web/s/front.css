@@ -18,3 +18,12 @@
 
 #div_loginarea { 
 }
+
+#userwrapper {
+	padding: 1em;
+}
+#usertools {
+	float: right;
+	padding: 1em;
+	border-left: solid 1px black;
+}
