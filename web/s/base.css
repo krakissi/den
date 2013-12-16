@@ -152,4 +152,7 @@ h1, h2, h3 {
 .searchresult {
 	display: inline-block;
 	max-width: 270px;
+	padding-bottom: 1em;
+	text-align: center;
+	vertical-align: middle;
 }
