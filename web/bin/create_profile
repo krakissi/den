@@ -60,8 +60,7 @@ if($?!=0){ &fail("Insert Failed") }
 
 
 # Redirect on success.
-my $ref = $ENV{'HTTP_REFERER'};
-if(length($ref)==0){ $ref = "/den/" }
+my $ref = "/den/edit.html?id=$id_profile";
 printf "Status: 302 Profile Created\nLocation: $ref\n\n";
 
 
