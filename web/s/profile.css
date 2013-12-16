@@ -116,14 +116,16 @@ textarea {
 	padding-bottom: 1em;
 }
 .profile_message {
-	margin-top: 1em;
 	position: relative;
+	padding-top: 1em;
 	padding-bottom: 1.5em;
-	border-bottom: dashed 1px #e8e8e8;
+	border-bottom: dashed 1px #e0e0e0;
 	font-size: 10pt;
+	background-color: #f0f0ff;
 }
 .profile_message_first {
 	font-size: 12pt;
+	background-color: #ffffff;
 }
 .profile_message_posted {
 	position: absolute;
