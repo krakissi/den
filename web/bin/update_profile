@@ -1,0 +1,58 @@
+#!/usr/bin/perl
+use strict;
+use URI::Escape;
+
+my $sql;
+my $resp;
+my $database = "den.db";
+chomp(my $homepath = qx/mod_home den/);
+chdir($homepath) or die "Can't get home.";
+
+my %postvalues;
+my $postdata = <STDIN>;
+if(length($postdata)>0){
+	my @pairs=split(/[;&]/, $postdata);
+	foreach my $pair (@pairs){
+		my ($name, $value) = split(/=/, $pair);
+
+		$value =~ s/\+/ /g;
+		$value =~ s/%([a-fA-F0-9][a-fA-F0-9])/pack("C", hex($1))/eg;
+
+		$postvalues{$name} = $value; 
+		chomp($postvalues{$name});
+	}
+}
+
+# Verify that the profile posting has authority from the current session.
+my $id_profile = $postvalues{'id_profile'};
+chomp(my $id_user = qx/mod_find accounts:id/);
+if($id_user eq ""){ die "Bad Auth" }
+$sql = qq{
+	SELECT name FROM profiles
+	WHERE id_profile='$id_profile' AND id_user='$id_user'
+};
+if(($resp = qx/sqlite3 "$database" "$sql"/) eq ""){ die "Unauthorized Change" }
+
+
+# Update Profile Name
+my $lambda_name = $postvalues{'name'};
+if(length($lambda_name)>0){
+	$lambda_name = uri_escape($lambda_name);
+	$sql = qq{
+		UPDATE profiles SET display='$lambda_name' WHERE id_profile='$id_profile';
+	};
+	qx/sqlite3 "$database" "$sql"/;
+}
+
+# Update Profile Description
+my $desc = $postvalues{'desc'};
+$desc =~s/[\r\n]+/\<\/p\>\n\<p\>/g;
+open(WRITEDESC, ">db/p/$id_profile") or printf "X-Cant-Write: Shit\n";
+printf WRITEDESC "<p>$desc</p>";
+close(WRITEDESC);
+
+
+# Redirect on Success
+my $ref = $ENV{'HTTP_REFERER'};
+if($ref eq ""){ $ref = "/" }
+printf "Status: 302 Profile Updated\nLocation: $ref\n\n";

@@ -8,7 +8,8 @@
 		</p>
 	</div>
 	<div>
-		<form method=post action=/bin/update_profile>
+		<form method=post action=bin/update_profile>
+			<input type=hidden name=id_profile value="<????den:id_profile>">
 			<p>
 				<label for=change_name>Name</label><br>
 				<input name=name id=change_name value="<????den:profile_name --safe>">

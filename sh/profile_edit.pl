@@ -2,6 +2,9 @@
 use strict;
 use URI::Escape;
 
+my $script = $ENV{'SCRIPT_NAME'};
+$script =~s/^.*\/([^\/]*)$/\1/;
+
 my $database="den.db";
 chomp(my $id_user = qx/mod_find accounts:id/);
 
@@ -27,10 +30,11 @@ my $sql = qq{
 chomp(my $resp = qx/sqlite3 "$database" "$sql"/);
 
 if($resp eq $id_user){
+	my $anchor = ($script eq "edit.html")?"<a href=\"/den/profile.html?id=$id_profile\">View</a>":"<a href=\"/den/edit.html?id=$id_profile\">Edit</a>";
 	printf qq{
 		<div id=div_profiletabs>
 			<span class=profiletab>
-				<a href="/den/edit.html?id=$id_profile">Edit</a>
+				$anchor
 			</span>
 		</div>
 	};
