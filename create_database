@@ -8,6 +8,8 @@ Press [Ctrl-C] to cancel or [ENTER] to continue.
 EOF
 read meow
 
+mkdir -p db/{i,p}
+
 database="den.db"
 schema="
 CREATE TABLE profiles (
