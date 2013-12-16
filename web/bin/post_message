@@ -2,6 +2,8 @@
 use strict;
 use URI::Escape;
 
+my $sql;
+my $resp;
 my $id_thread;
 my $database = "den.db";
 chomp(my $homepath = qx/mod_home den/);
@@ -21,11 +23,10 @@ if(length($postdata)>0){
 		chomp($postvalues{$name});
 	}
 }
-
 sub get_pid {
 	my $pid = qx\tr -dc "[:alpha:]" < /dev/urandom | head -c 16\;
 
-	my $sql = qq/SELECT id_thread FROM threads WHERE id_thread='$pid';/;
+	$sql = qq/SELECT id_thread FROM threads WHERE id_thread='$pid';/;
 	chomp(my $response = qx/sqlite3 "$database" "$sql"/);
 
 	# Recurse if the ID is taken already. (Pretty much can't happen.)
@@ -38,7 +39,7 @@ sub create_thread {
 
 	# Create a new thread.
 	$id_thread = &get_pid();
-	my $sql = qq{
+	$sql = qq{
 		INSERT INTO threads(id_thread, vis) VALUES('$id_thread', '$vis');
 	};
 	qx/sqlite3 "$database" "$sql"/;
@@ -54,19 +55,28 @@ sub create_thread {
 	qx/sqlite3 "$database" "$sql"/;
 }
 
+# Verify that the profile posting has authority from the current session.
+my $id_profile = $postvalues{'from_id_profile'};
+chomp(my $id_user = qx/mod_find accounts:id/);
+if($id_user eq ""){ die "Bad Auth" }
+$sql = qq{
+	SELECT name FROM profiles
+	WHERE id_profile='$id_profile' AND id_user='$id_user'
+};
+if(($resp = qx/sqlite3 "$database" "$sql"/) eq ""){ die "Unauthorized Post" }
+
 # Create the thread if there isn't an appropriate one.
 if(length($postvalues{'thread'})>0){ $id_thread = $postvalues{'thread'} }
 else { &create_thread('1') }
 
 
 # Verify that the poster is participating in the thread.
-my $id_profile = $postvalues{'from_id_profile'};
 if($id_profile eq ""){ die "No Poster" }
-my $sql = qq{
+$sql = qq{
 	SELECT id_thread FROM profilethread
 	WHERE id_thread='$id_thread' AND id_profile='$id_profile';
 };
-my $resp = qx/sqlite3 "$database" "$sql"/;
+$resp = qx/sqlite3 "$database" "$sql"/;
 if($resp eq ""){
 	$sql = qq{
 		INSERT INTO profilethread(id_profile, id_thread, ship)
