@@ -1,10 +1,25 @@
-<form method=post action=/bin/update_profile>
-	<p>
-		<label for=change_name>Name</label><br>
-		<input name=name id=change_name>
-	</p>
-	<p>
-		<label for=change_desc>Description</label><br>
-		<textarea name=desc id=change_desc><????den:profile_text raw></textarea>
-	</p>
-</form>
+<div id=edit_wrapper>
+	<div id=edit_changeimage>
+		<a href="bin/userimage?<????den:id_profile>">
+			<img src="bin/userimage?<????den:id_profile>&scale" border=0>
+		</a>
+		<p>
+			File uploader goes here.
+		</p>
+	</div>
+	<div>
+		<form method=post action=/bin/update_profile>
+			<p>
+				<label for=change_name>Name</label><br>
+				<input name=name id=change_name value="<????den:profile_name --safe>">
+			</p>
+			<p>
+				<label for=change_desc>Description</label><br>
+				<textarea name=desc id=change_desc><????den:profile_text raw></textarea>
+			</p>
+			<div id=edit_submit>
+				<input type=submit value="Update Profile">
+			</div>
+		</form>
+	</div>
+</div>

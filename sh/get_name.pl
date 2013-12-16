@@ -1,6 +1,8 @@
 #!/usr/bin/perl
 
-my $id_profile = $ARGV[0];
+my $id_profile;
+
+if($ARGV[0] ne "--safe"){ $id_profile = $ARGV[0] }
 if($id_profile eq ""){
 	my %queryvals;
 	my $buffer = $ENV{'QUERY_STRING'};
@@ -28,6 +30,9 @@ chomp(my $resp = qx/sqlite3 "$database" "$sql"/);
 my ($name, $display) = split('\|', $resp, 2);
 if(length($display)>0){ $name = $display }
 $name = qx/decode "$name"/;
+
+if($ARGV[0] eq "--safe"){ $name =~s/"/&quot;/g }
+
 printf "$name";
 
 exit 0

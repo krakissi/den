@@ -1,7 +1,24 @@
+#edit_wrapper {
+	padding: 1em;
+	padding-bottom: 2em;
+}
+
 #change_name {
-	width: 550px;
+	width: 545px;
 }
 
 #change_desc {
 	height: 300px;
+}
+#edit_submit {
+	width: 550px;
+	text-align: right;
+}
+
+#edit_changeimage {
+	float: right;
+}
+#edit_changeimage img {
+	border-top: solid 1px black;
+	border-bottom: solid 1px black;
 }
