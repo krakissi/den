@@ -63,6 +63,7 @@
 	position: absolute;
 	right: 2em;
 	bottom: 0.1em;
+	font-size: 12pt;
 }
 .profiletab {
 	cursor: pointer;

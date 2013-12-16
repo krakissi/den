@@ -14,3 +14,5 @@ profile_name=sh/get_name.pl
 profile_text=sh/profile_text
 profile_optionlist=sh/profile_optionlist.pl
 profile_messages=sh/profile_messages.pl
+
+profile_editme=sh/profile_edit.pl
