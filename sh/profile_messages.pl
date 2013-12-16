@@ -53,12 +53,14 @@ foreach my $thread(split(/\n/, $threads)){
 		$content = qx/decode "$content"/;
 
 		if(length($display)>0){ $name = $display }
+		$name = qx/decode "$name"/;
+
 		if($first == 1){ $first=0; printf "<div class=\"profile_message profile_message_first\">" }
 		else { printf "<div class=profile_message>" }
 		printf qq{
 				<span class=profile_message_posted>$posted</span>
 				<span class=profile_message_profilename>$name</span>
-				<p class=profile_message_content>$content</p>
+				<p>$content</p>
 			</div>
 		};
 	}

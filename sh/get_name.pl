@@ -26,6 +26,8 @@ my $sql = qq/SELECT name, display FROM profiles WHERE id_profile='$id_profile'/;
 chomp(my $resp = qx/sqlite3 "$database" "$sql"/);
 
 my ($name, $display) = split('\|', $resp, 2);
-if($display eq ""){ printf "$name" } else { printf "$display" }
+if(length($display)>0){ $name = $display }
+$name = qx/decode "$name"/;
+printf "$name";
 
 exit 0

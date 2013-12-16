@@ -135,7 +135,7 @@ textarea {
 	font-size: 10pt;
 	font-style: oblique;
 }
-.profile_message_content {
+.profile_message p {
 	text-align: justify;
 	text-indent: 0 !important;
 }

@@ -2,6 +2,7 @@
 # mperron (2013)
 
 use strict;
+use URI::Escape;
 
 my $sql;
 my $id_user;
@@ -25,8 +26,7 @@ if(length($postdata)>0){
 		chomp($postvalues{$name});
 	}
 }
-my $pname = $postvalues{'pname'};
-if($pname =~ /[\|]/){ &fail("Bad Profile Name") }
+my $pname = uri_escape($postvalues{'pname'});
 
 sub get_pid {
 	my $pid = qx\tr -dc "[:alpha:]" < /dev/urandom | head -c 16\;

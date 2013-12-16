@@ -27,8 +27,10 @@ if(length($id_profile)>0){
 	if(length($resp)>0){
 		my($name, $display) = split('\|', $resp, 2);
 
-		if(length($display)>0){ $title = "$display\'s profile" }
-		elsif(length($name)>0){ $title = "$name\'s profile" }
+		if(length($display)>0){ $name = $display }
+		$name = qx/decode "$name"/;
+
+		if(length($name)>0){ $title = "$name\'s profile" }
 	}
 }
 

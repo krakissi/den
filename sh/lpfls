@@ -16,13 +16,16 @@ printf "Your Current Profiles:";
 
 printf "<ul>";
 if(length($id_user)>0){
-	my $sql = qq/SELECT id_profile, name FROM profiles WHERE id_user='$id_user';/;
+	my $sql = qq/SELECT id_profile, name, display FROM profiles WHERE id_user='$id_user';/;
 	
 	my $plist = qx/sqlite3 "$database" "$sql"/;
 	if($?!=0){ printf "Database Error" }
 
 	foreach my $line(split('\n', $plist)){
-		my ($id_profile, $name) = split('\|', $line, 2);
+		my ($id_profile, $name, $display) = split('\|', $line, 3);
+		if(length($display)>0){ $name = $display }
+		$name = qx/decode "$name"/;
+
 		printf "<li><a href=\"/den/profile.html?id=$id_profile\">$name</a></li>";
 	}
 }

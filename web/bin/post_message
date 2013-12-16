@@ -76,7 +76,10 @@ if($resp eq ""){
 }
 
 # Insert the post message.
-my $message = uri_escape($postvalues{'message'});
+my $message = $postvalues{'message'};
+$message =~s/[\r\n]+/\<\/p\>\<p\>/g;
+$message = uri_escape($message);
+
 $sql = qq{
 	INSERT INTO messages(id_profile, id_thread, content)
 	VALUES('$id_profile', '$id_thread', '$message');

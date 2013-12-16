@@ -14,6 +14,7 @@ my $resp = qx/sqlite3 "$database" "$sql"/;
 foreach my $line(split(/\n/, $resp)){
 	my($id, $name, $display) = split('\|', $line, 3);
 	if(length($display)>0){ $name = $display }
+	$name = qx/decode "$name"/;
 
 	printf "<option value=\"$id\">$name</option>";
 }
