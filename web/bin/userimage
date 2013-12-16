@@ -36,6 +36,8 @@ if [ -e "$image" ]; then
 	EOF
 	if [ "$scale" == "scale" ]; then
 		convert -resize 300x "$image" png:-
+	elif [ "$scale" == "search" ]; then
+		convert -resize 220x "$image" png:-
 	else
 		convert "$image" png:-
 	fi
