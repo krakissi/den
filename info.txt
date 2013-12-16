@@ -11,7 +11,7 @@ id_profile=sh/id_profile
 profile_tool=sh/pt
 profile_list=sh/lpfls
 profile_name=sh/get_name.pl
-profile_text=sh/profile_text
+profile_text=sh/profile_text.pl
 profile_optionlist=sh/profile_optionlist.pl
 profile_messages=sh/profile_messages.pl
 

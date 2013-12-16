@@ -8,6 +8,7 @@
 	<link rel=stylesheet type=text/css href=s/front.css>
 	<link rel=stylesheet type=text/css href=s/profile.css>
 	<link rel=stylesheet type=text/css href=s/register.css>
+	<link rel=stylesheet type=text/css href=s/edit.css>
 </head><body>
 	<div id=div_pagewrapper>
 		<!-- A banner at the top of the page -->
