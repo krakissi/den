@@ -83,6 +83,8 @@
 	margin-top: 5px;
 	position: relative;
 	height: 30px;
+
+	border-bottom: solid 1px black;
 }
 .profile_postcontrols_selectprofile {
 	min-width: 150px;
