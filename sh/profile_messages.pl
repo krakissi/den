@@ -59,7 +59,7 @@ foreach my $thread(split(/\n/, $threads)){
 		else { printf "<div class=profile_message>" }
 		printf qq{
 				<span class=profile_message_posted>$posted</span>
-				<span class=profile_message_profilename>$name</span>
+				<span class=profile_message_profilename><a href="/den/profile.html?id=$profile">$name</a></span>
 				<p>$content</p>
 			</div>
 		};
